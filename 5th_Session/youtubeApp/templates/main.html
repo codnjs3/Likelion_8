@@ -1,0 +1,30 @@
+<div class="container">
+    {% for i in channels.all %}
+            <h2><i>{{i.name}}</i></h2>
+            <p>
+                <span style="background: wheat;">{{i.creater}}</span>
+                구독자수 : {{i.subscription}}
+                {% if i.live == True %}
+                    <span style="border-radius: 50px; padding: 10px 20px; background: red; color: white;">On Air</span><br>
+                {% else %}
+                    <span style="border-radius: 50px; padding: 10px 20px; background: grey; color: white;">On Air</span><br>
+                {% endif %}
+                {% if i.fav == 1 %}
+                    ★☆☆☆☆
+                {% elif i.fav == 2 %}
+                    ★★☆☆☆
+                {% elif i.fav == 3 %}
+                    ★★★☆☆
+                {% elif i.fav == 4 %}
+                    ★★★★☆
+                {% elif i.fav == 5 %}
+                    ★★★★★
+                {% endif %}
+                <br>
+                <a href={{i.link1}}><img src={{i.img1}} width=250px></a>
+                <a href={{i.link2}}><img src={{i.img2}} width=250px></a>
+                <a href={{i.link3}}><img src={{i.img3}} width=250px></a>
+                <br><br><br>
+            </p>
+    {% endfor %}
+</div>
