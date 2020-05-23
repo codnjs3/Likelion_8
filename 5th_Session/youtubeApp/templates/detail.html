@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>{{content.name}}</p>
+    <p>크리에이터 이름: <br>{{content.creator}}</p>
+    <p>구독자 수: <br>{{content.subscription}}</p>
+    <p>추천 별점: <br>
+        {% if content.fav == 1%}
+        ★☆☆☆☆
+        {% elif content.fav == 2%}
+        ★★☆☆☆
+        {% elif content.fav == 3%}
+        ★★★☆☆
+        {% elif content.fav == 4%}
+        ★★★★☆
+        {% else %}
+        ★★★★★
+        {% endif %}
+    </p>
+
+    {%if content.live == True %}
+        <p><span style="border-radius: 50px; padding: 10px 20px; background: red; color: white;">On Air</span><br></p>
+    {% else %}
+        <p><span style="border-radius: 50px; padding: 10px 20px; background: grey; color: white;">On Air</span><br></p>
+    {% endif %}
+
+    <p>추천 영상</p>
+    <iframe  src="{{content.link1}}" allowfullscreen></iframe>
+    <iframe  src="{{content.link2}}" allowfullscreen></iframe>
+    <iframe  src="{{content.link3}}" allowfullscreen></iframe>
+    <img src={{content.photo.url}}>
+    <p>"{{content.summary}}"</p>
+    <h2>유튜브 소개:</h2>
+    <p>{{content.text}}</p>
+
+</body>
+</html>

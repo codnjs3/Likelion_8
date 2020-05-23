@@ -1,8 +1,16 @@
-<div class="container">
-    {% for i in channels.all %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        {% for i in channels.all %}
             <h2><i>{{i.name}}</i></h2>
             <p>
-                <span style="background: wheat;">{{i.creater}}</span>
+                <span style="background: wheat;">{{i.creator}}</span>
                 구독자수 : {{i.subscription}}
                 {% if i.live == True %}
                     <span style="border-radius: 50px; padding: 10px 20px; background: red; color: white;">On Air</span><br>
@@ -25,6 +33,12 @@
                 <a href={{i.link2}}><img src={{i.img2}} width=250px></a>
                 <a href={{i.link3}}><img src={{i.img3}} width=250px></a>
                 <br><br><br>
+                <!-- <a href="{% url 'detail' i.id %}" align="center">자세히 보기</a> -->
             </p>
-    {% endfor %}
-</div>
+        {% endfor %}
+        <a href="{% url 'new' %}">
+            <button class="button">button</button>
+        </a>
+    </div>
+</body>
+</html>

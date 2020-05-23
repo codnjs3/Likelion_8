@@ -16,8 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import youtubeApp.views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', youtubeApp.views.main, name='main'),
+    path('detail/<int:detail_id>',youtubeApp.views.detail, name='detail'),
+    path('new/',youtubeApp.views.new, name='new'),
+    path('create/',youtubeApp.views.create, name='create'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                    document_root=settings.MEDIA_ROOT)
