@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>FavSong Change</title>
+{% endblock title %}
+
+{% block contents %}
+    <form action="{% url 'change' change_key.id %}" method="POST">
+        {% csrf_token %}
+        <p>가수명 : </p>
+        <input type="text" name="nameSinger" value="{{change_key.singerName}}">
+        <p>애정 곡 1: </p>
+        <input type="text" name="favSong1" value="{{change_key.favSongName1}}">
+        <p>뽀인트 : </p>
+        <input type="text" name="why" value="{{change_key.whyFavSinger}}">
+        <br><br><input type="submit" value="수정하기">
+    </form>
+{% endblock contents %}

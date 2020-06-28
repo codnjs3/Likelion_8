@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>FavSinger Detail</title>
+{% endblock title %}
+
+{% block contents %}
+    {{detail_key.singerName}}<br><br>
+    {{detail_key.favSongName1}}<br><br>
+    {{detail_key.whyFavSinger}}<br><br>
+    <br><br>
+    <a href="{% url 'change' detail_key.id %}">수정하기</a><br>
+    <a href="{% url 'delete' detail_key.id %}">삭제하기</a><br>
+    <a href="{% url 'home' %}">돌아가기</a>
+{% endblock contents %}

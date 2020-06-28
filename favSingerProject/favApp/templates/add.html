@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>FavSinger Add</title>
+{% endblock title %}
+
+{% block contents %}
+    <form action="{% url 'add' %}" method="POST">
+        {% csrf_token %}
+        <p>가수명 : </p>
+        <input type="text" name="nameSinger">
+        <p>애정 곡 1: </p>
+        <input type="text" name="favSong1">
+        <p>뽀인트 : </p>
+        <input type="text" name="why">
+        <input type="submit" value="추가하기">
+    </form>
+{% endblock contents %}
